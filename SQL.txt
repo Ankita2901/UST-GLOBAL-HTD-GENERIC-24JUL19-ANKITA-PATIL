@@ -1,0 +1,2989 @@
+*to create the database* 
+create database tyss;
+
+*show the database* 
+show databases;
+use tyss;
+
+*to show the created table*
+show tables;
+create table student(id int, name varchar(120), emailId varchar(150));
+ show tables;
++----------------+
+| Tables_in_tyss |
++----------------+
+| student        |
++----------------+
+1 row in set (0.00 sec)
+
+*to see the table content*
+ desc student;
+
+*to drop the table*
+drop table student;
+
+*to drop complete database*
+drop database tyss;
+
+*to change the name*
+alter table student change name studentName varchar(120);
+
+ insert into  student_info(id, studentName,emailId) values(201,'ankita','ankitapatil2901@gmail.com');
+
+*to add new column*
+alter table student add address varchar(120);
+
+*to drop the colum*
+alter table student drop address varchar(120);
+
+*to drop *
+alter table student drop address;
+
+*rename the table*
+ rename table student to student_info;
+
+insert into student_info values(209,'scooby','scooby@gmail.com');
+
+select * from student_info;
+
+insert into student_info values(210,'meaow','meaow@gmail.com'),(209,'scooby','scooby@gmail.com');
+
+insert into student_info(id, studentName) values(333,'rockey');
+
+mysql> use assg;
+Database changed
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| ank                |
+| assg               |
+| employee           |
+| mysql              |
+| performance_schema |
+| sys                |
+| ust                |
++--------------------+
+8 rows in set (0.00 sec)
+
+mysql> create table emp(id int primary key,empname varchar(50), emailid varchar(50),designation varchar(50),mobileno int,age int,DOB date,DOJ date,salary int,deptid int,bloodgroup varchar(50));
+Query OK, 0 rows affected (0.45 sec)
+
+mysql> desc emp;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| id          | int(11)     | NO   | PRI | NULL    |       |
+| empname     | varchar(50) | YES  |     | NULL    |       |
+| emailid     | varchar(50) | YES  |     | NULL    |       |
+| designation | varchar(50) | YES  |     | NULL    |       |
+| mobileno    | int(11)     | YES  |     | NULL    |       |
+| age         | int(11)     | YES  |     | NULL    |       |
+| DOB         | date        | YES  |     | NULL    |       |
+| DOJ         | date        | YES  |     | NULL    |       |
+| salary      | int(11)     | YES  |     | NULL    |       |
+| deptid      | int(11)     | YES  |     | NULL    |       |
+| bloodgroup  | varchar(50) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+11 rows in set (0.00 sec)
+
+mysql> insert into emp values(10, 'kaveri', 'kaveri@gmail.com', 'engineer', 88805, 22, '1996-02-01','2000-8-19',20000,20,'A+');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into emp values(20, 'ankita', 'ankita@gmail.com', 'software engg', 5678, 26, '1991-02-01','1991-8-19',60000,30,'B+');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from emp;
++----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid          | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| 10 | kaveri  | kaveri@gmail.com | engineer      |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+| 20 | ankita  | ankita@gmail.com | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
++----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+2 rows in set (0.00 sec)
+
+mysql> insert into emp values(30, 'gauri', 'gauri@gmail.com', 'clerk', 12345, 29, '1992-07-01','1999-8-19',15000,40,'O+');
+Query OK, 1 row affected (0.15 sec)
+
+mysql> insert into emp values(40, 'vish', 'vish@gmail.com', 'swipper', 67890, 32, '1994-08-09','1992-09-19',5000,50,'O-');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into emp values(50, 'shradha', 'shradha@gmail.com', 'salesman', 89549, 42, '1993-07-09','1992-06-21',25000,60,'A-');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into emp values(60, 'shilpa', 'shilpa@gmail.com', 'hr', 27497, 38, '1993-07-09','1998-06-21',50000,70,'AB-');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from emp;
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| 10 | kaveri  | kaveri@gmail.com  | engineer      |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+| 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+| 30 | gauri   | gauri@gmail.com   | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+| 40 | vish    | vish@gmail.com    | swipper       |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+| 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+| 60 | shilpa  | shilpa@gmail.com  | hr            |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> insert into emp values(70, 'guru', 'guru@gmail.com', 'manager', 96317, 56, '1995-02-01','1997-02-19',40000,80,'AB+');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into emp values(80, 'akash', 'akash@gmail.com', 'mechnical', 89543, 45, '1997-02-01','1994-04-19',35000,90,'A+');
+Query OK, 1 row affected (0.18 sec)
+
+mysql> insert into emp values(90, 'akshay', 'akshay@gmail.com', 'tester', 89543, 45, '1997-02-01','1994-04-19',45000,10,'A+');
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from emp;
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| 10 | kaveri  | kaveri@gmail.com  | engineer      |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+| 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+| 30 | gauri   | gauri@gmail.com   | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+| 40 | vish    | vish@gmail.com    | swipper       |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+| 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+| 60 | shilpa  | shilpa@gmail.com  | hr            |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+| 70 | guru    | guru@gmail.com    | manager       |    96317 |   56 | 1995-02-01 | 1997-02-19 |  40000 |     80 | AB+        |
+| 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+| 90 | akshay  | akshay@gmail.com  | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+9 rows in set (0.00 sec)
+
+mysql> insert into emp values(65, 'vignesh', 'vignesh@gmail.com', 'developer', 29065, 24, '1995-03-04','1993-07-01',80000,20,'B-');
+Query OK, 1 row affected (0.08 sec)
+
+mysql> insert into emp(id,age) values(22,47);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select * from emp;
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| 10 | kaveri  | kaveri@gmail.com  | engineer      |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+| 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+| 22 | NULL    | NULL              | NULL          |     NULL |   47 | NULL       | NULL       |   NULL |   NULL | NULL       |
+| 30 | gauri   | gauri@gmail.com   | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+| 40 | vish    | vish@gmail.com    | swipper       |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+| 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+| 60 | shilpa  | shilpa@gmail.com  | hr            |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+| 65 | vignesh | vignesh@gmail.com | developer     |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+| 70 | guru    | guru@gmail.com    | manager       |    96317 |   56 | 1995-02-01 | 1997-02-19 |  40000 |     80 | AB+        |
+| 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+| 90 | akshay  | akshay@gmail.com  | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+11 rows in set (0.00 sec)
+
+mysql> insert into emp(id,empname,deptid) values(44,'aman',40);
+Query OK, 1 row affected (0.43 sec)
+
+mysql> select * from emp;
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| 10 | kaveri  | kaveri@gmail.com  | engineer      |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+| 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+| 22 | NULL    | NULL              | NULL          |     NULL |   47 | NULL       | NULL       |   NULL |   NULL | NULL       |
+| 30 | gauri   | gauri@gmail.com   | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+| 40 | vish    | vish@gmail.com    | swipper       |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+| 44 | aman    | NULL              | NULL          |     NULL | NULL | NULL       | NULL       |   NULL |     40 | NULL       |
+| 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+| 60 | shilpa  | shilpa@gmail.com  | hr            |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+| 65 | vignesh | vignesh@gmail.com | developer     |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+| 70 | guru    | guru@gmail.com    | manager       |    96317 |   56 | 1995-02-01 | 1997-02-19 |  40000 |     80 | AB+        |
+| 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+| 90 | akshay  | akshay@gmail.com  | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+12 rows in set (0.00 sec)
+
+
+mysql> select * from emp where  deptid=30;
++----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid          | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| 20 | ankita  | ankita@gmail.com | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
++----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp where designation='software engg' and   deptid=30;
++----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid          | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| 20 | ankita  | ankita@gmail.com | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
++----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+1 row in set (0.00 sec)
+
+mysql> select designation='software engg' from emp where deptid=40 and salary>=5000;
++-----------------------------+
+| designation='software engg' |
++-----------------------------+
+|                           0 |
++-----------------------------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp where  designation='software engg' and ( deptid=40 and salary>=5000);
+Empty set (0.00 sec)
+
+mysql> select * from emp where deptid not in(10,20);
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+| 30 | gauri   | gauri@gmail.com   | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+| 40 | vish    | vish@gmail.com    | swipper       |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+| 44 | aman    | NULL              | NULL          |     NULL | NULL | NULL       | NULL       |   NULL |     40 | NULL       |
+| 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+| 60 | shilpa  | shilpa@gmail.com  | hr            |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+| 70 | guru    | guru@gmail.com    | manager       |    96317 |   56 | 1995-02-01 | 1997-02-19 |  40000 |     80 | AB+        |
+| 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+8 rows in set (0.00 sec)
+
+mysql> select * from emp where designation!='software engg' and designation!='clerk' and  (deptid in(10,20) and salary>=1000 and salary<=3000);
+Empty set (0.00 sec)
+
+mysql> select * from emp where designation!='salesman' and ( salary not between 10000 and 20000 ) and deptid not in(10,20,30);
++----+---------+------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid          | designation | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+| 40 | vish    | vish@gmail.com   | swipper     |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+| 60 | shilpa  | shilpa@gmail.com | hr          |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+| 70 | guru    | guru@gmail.com   | manager     |    96317 |   56 | 1995-02-01 | 1997-02-19 |  40000 |     80 | AB+        |
+| 80 | akash   | akash@gmail.com  | mechnical   |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
++----+---------+------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp where salary between 60000 and 5000;
+Empty set (0.00 sec)
+
+mysql> select * from emp where salary<=60000 and salary>=5000;
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| 10 | kaveri  | kaveri@gmail.com  | engineer      |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+| 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+| 30 | gauri   | gauri@gmail.com   | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+| 40 | vish    | vish@gmail.com    | swipper       |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+| 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+| 60 | shilpa  | shilpa@gmail.com  | hr            |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+| 70 | guru    | guru@gmail.com    | manager       |    96317 |   56 | 1995-02-01 | 1997-02-19 |  40000 |     80 | AB+        |
+| 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+| 90 | akshay  | akshay@gmail.com  | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+9 rows in set (0.00 sec)
+
+
+mysql> select max(salary) from emp;
++-------------+
+| max(salary) |
++-------------+
+|       80000 |
++-------------+
+1 row in set (0.00 sec)
+
+
+mysql> select min(salary) minimunpay, max(salary) maximumpay , sum(salary) total from emp;
++------------+------------+--------+
+| minimunpay | maximumpay | total  |
++------------+------------+--------+
+|       5000 |      80000 | 375000 |
++------------+------------+--------+
+1 row in set (0.00 sec)
+
+mysql> select count('software engg') from emp where deptid=20;
++------------------------+
+| count('software engg') |
++------------------------+
+|                      2 |
++------------------------+
+1 row in set (0.00 sec)
+
+mysql> select max(salary), min(salary) from emp where designation='salesman';
++-------------+-------------+
+| max(salary) | min(salary) |
++-------------+-------------+
+|       25000 |       25000 |
++-------------+-------------+
+1 row in set (0.00 sec)
+
+mysql> insert into emp values(55, 'pratik', 'pratik@gmail.com', 'salesman', 29065, 24, '1995-03-04','1993-07-01',80000,20,'B-');
+Query OK, 1 row affected (0.09 sec)
+
+mysql> select max(salary), min(salary) from emp where designation='salesman';
++-------------+-------------+
+| max(salary) | min(salary) |
++-------------+-------------+
+|       80000 |       25000 |
++-------------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(salary) total from emp;
++--------+
+| total  |
++--------+
+| 455000 |
++--------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp where deptid=20;
++----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid           | designation | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+| 10 | kaveri  | kaveri@gmail.com  | engineer    |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+| 55 | pratik  | pratik@gmail.com  | salesman    |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+| 65 | vignesh | vignesh@gmail.com | developer   |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
++----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select * from emp where salary>2500;
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| 10 | kaveri  | kaveri@gmail.com  | engineer      |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+| 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+| 30 | gauri   | gauri@gmail.com   | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+| 40 | vish    | vish@gmail.com    | swipper       |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+| 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+| 55 | pratik  | pratik@gmail.com  | salesman      |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+| 60 | shilpa  | shilpa@gmail.com  | hr            |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+| 65 | vignesh | vignesh@gmail.com | developer     |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+| 70 | guru    | guru@gmail.com    | manager       |    96317 |   56 | 1995-02-01 | 1997-02-19 |  40000 |     80 | AB+        |
+| 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+| 90 | akshay  | akshay@gmail.com  | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+11 rows in set (0.00 sec)
+
+mysql> select * from emp where designation='software engg';
++----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid          | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| 20 | ankita  | ankita@gmail.com | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
++----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from emp where deptid in(10,30,40);
++----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid          | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| 20 | ankita  | ankita@gmail.com | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+| 30 | gauri   | gauri@gmail.com  | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+| 44 | aman    | NULL             | NULL          |     NULL | NULL | NULL       | NULL       |   NULL |     40 | NULL       |
+| 90 | akshay  | akshay@gmail.com | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
++----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select * from emp where deptid in(10,20,40);
++----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid           | designation | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+| 10 | kaveri  | kaveri@gmail.com  | engineer    |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+| 30 | gauri   | gauri@gmail.com   | clerk       |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+| 44 | aman    | NULL              | NULL        |     NULL | NULL | NULL       | NULL       |   NULL |     40 | NULL       |
+| 55 | pratik  | pratik@gmail.com  | salesman    |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+| 65 | vignesh | vignesh@gmail.com | developer   |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+| 90 | akshay  | akshay@gmail.com  | tester      |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
++----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from emp where empname like 's%';
++----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid           | designation | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+| 50 | shradha | shradha@gmail.com | salesman    |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+| 60 | shilpa  | shilpa@gmail.com  | hr          |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
++----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from emp where empname like '_l%';
+Empty set (0.00 sec)
+
+mysql> select * from emp where empname like '%a%a%';
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+| 44 | aman    | NULL              | NULL          |     NULL | NULL | NULL       | NULL       |   NULL |     40 | NULL       |
+| 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+| 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+| 90 | akshay  | akshay@gmail.com  | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from emp where empname like '%A%A%';
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+| 44 | aman    | NULL              | NULL          |     NULL | NULL | NULL       | NULL       |   NULL |     40 | NULL       |
+| 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+| 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+| 90 | akshay  | akshay@gmail.com  | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+5 rows in set (0.00 sec)
+
+mysql> select * from emp where empname like '%e_';
+Empty set (0.00 sec)
+
+mysql> select * from emp where empname like '_____';
++----+---------+-----------------+-------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid         | designation | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-----------------+-------------+----------+------+------------+------------+--------+--------+------------+
+| 30 | gauri   | gauri@gmail.com | clerk       |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+| 80 | akash   | akash@gmail.com | mechnical   |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
++----+---------+-----------------+-------------+----------+------+------------+------------+--------+--------+------------+
+2 rows in set (0.00 sec)
+
+mysql> select * from emp where salary between 20000 and 30000;
++----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid           | designation | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+| 10 | kaveri  | kaveri@gmail.com  | engineer    |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+| 50 | shradha | shradha@gmail.com | salesman    |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
++----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+2 rows in set (0.00 sec)
+
+
+mysql> show databases' at line 1
+mysql> +--------------------+
+    -> | Database           |
+    -> +--------------------+
+    -> | information_schema |
+    -> | ank                |
+    -> | assg               |
+    -> | employee           |
+    -> | mysql              |
+    -> | performance_schema |
+    -> | sys                |
+    -> | ust                |
+    -> +--------------------+
+    -> 8 rows in set (0.00 sec)
+    
+
+mysql> desc emp' at line 1
+mysql> +-------------+-------------+------+-----+---------+-------+
+    -> | Field       | Type        | Null | Key | Default | Extra |
+    -> +-------------+-------------+------+-----+---------+-------+
+    -> | id          | int(11)     | NO   | PRI | NULL    |       |
+    -> | empname     | varchar(50) | YES  |     | NULL    |       |
+    -> | emailid     | varchar(50) | YES  |     | NULL    |       |
+    -> | designation | varchar(50) | YES  |     | NULL    |       |
+    -> | mobileno    | int(11)     | YES  |     | NULL    |       |
+    -> | age         | int(11)     | YES  |     | NULL    |       |
+    -> | DOB         | date        | YES  |     | NULL    |       |
+    -> | DOJ         | date        | YES  |     | NULL    |       |
+    -> | salary      | int(11)     | YES  |     | NULL    |       |
+    -> | deptid      | int(11)     | YES  |     | NULL    |       |
+    -> | bloodgroup  | varchar(50) | YES  |     | NULL    |       |
+    -> +-------------+-------------+------+-----+---------+-------+
+    -> 11 rows in set (0.00 sec)
+   
+
+mysql> insert into emp values(20, 'ankita',' at line 1
+mysql> Query OK, 1 row affected (0.07 sec)
+    ->
+    
+mysql> select * from emp' at line 1
+mysql> +----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid          | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 10 | kaveri  | kaveri@gmail.com | engineer      |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+    -> | 20 | ankita  | ankita@gmail.com | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+    -> +----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> 2 rows in set (0.00 sec)
+    
+mysql> insert into emp values(40, 'vish', '' at line 1
+mysql> Query OK, 1 row affected (0.08 sec)
+    
+mysql> insert into emp values(50, 'shradha'' at line 1
+mysql> Query OK, 1 row affected (0.07 sec)
+    
+mysql> insert into emp values(60, 'shilpa',' at line 1
+mysql> Query OK, 1 row affected (0.04 sec)
+    
+mysql> select * from emp' at line 1
+mysql> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 10 | kaveri  | kaveri@gmail.com  | engineer      |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+    -> | 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+    -> | 30 | gauri   | gauri@gmail.com   | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+    -> | 40 | vish    | vish@gmail.com    | swipper       |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+    -> | 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+    -> | 60 | shilpa  | shilpa@gmail.com  | hr            |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+    -> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> 6 rows in set (0.00 sec)
+    
+mysql> Query OK, 1 row affected (0.07 sec)
+    -
+mysql> insert into emp values(80, 'akash', ' at line 1
+mysql> Query OK, 1 row affected (0.18 sec)
+    
+
+mysql> insert into emp values(90, 'akshay',' at line 1
+mysql> Query OK, 1 row affected (0.07 sec)
+    
+mysql> select * from emp' at line 1
+mysql> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 10 | kaveri  | kaveri@gmail.com  | engineer      |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+    -> | 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+    -> | 30 | gauri   | gauri@gmail.com   | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+    -> | 40 | vish    | vish@gmail.com    | swipper       |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+    -> | 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+    -> | 60 | shilpa  | shilpa@gmail.com  | hr            |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+    -> | 70 | guru    | guru@gmail.com    | manager       |    96317 |   56 | 1995-02-01 | 1997-02-19 |  40000 |     80 | AB+        |
+    -> | 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+    -> | 90 | akshay  | akshay@gmail.com  | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
+    -> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> 9 rows in set (0.00 sec)
+    
+
+mysql> insert into emp(id,age) values(22,47' at line 1
+mysql> Query OK, 1 row affected (0.04 sec)
+     1 row affected (0.04 sec)
+
+mysql> select * from emp' at line 1
+mysql> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 10 | kaveri  | kaveri@gmail.com  | engineer      |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+    -> | 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+    -> | 22 | NULL    | NULL              | NULL          |     NULL |   47 | NULL       | NULL       |   NULL |   NULL | NULL       |
+    -> | 30 | gauri   | gauri@gmail.com   | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+    -> | 40 | vish    | vish@gmail.com    | swipper       |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+    -> | 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+    -> | 60 | shilpa  | shilpa@gmail.com  | hr            |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+    -> | 65 | vignesh | vignesh@gmail.com | developer     |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+    -> | 70 | guru    | guru@gmail.com    | manager       |    96317 |   56 | 1995-02-01 | 1997-02-19 |  40000 |     80 | AB+        |
+    -> | 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+    -> | 90 | akshay  | akshay@gmail.com  | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
+    -> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> 11 rows in set (0.00 sec)
+   
+mysql> select * from emp' at line 1
+mysql> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 10 | kaveri  | kaveri@gmail.com  | engineer      |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+    -> | 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+    -> | 22 | NULL    | NULL              | NULL          |     NULL |   47 | NULL       | NULL       |   NULL |   NULL | NULL       |
+    -> | 30 | gauri   | gauri@gmail.com   | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+    -> | 40 | vish    | vish@gmail.com    | swipper       |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+    -> | 44 | aman    | NULL              | NULL          |     NULL | NULL | NULL       | NULL       |   NULL |     40 | NULL       |
+    -> | 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+    -> | 60 | shilpa  | shilpa@gmail.com  | hr            |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+    -> | 65 | vignesh | vignesh@gmail.com | developer     |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+    -> | 70 | guru    | guru@gmail.com    | manager       |    96317 |   56 | 1995-02-01 | 1997-02-19 |  40000 |     80 | AB+        |
+    -> | 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+    -> | 90 | akshay  | akshay@gmail.com  | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
+    -> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> 12 rows in set (0.00 sec)
+    -
+mysql> +----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid          | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 20 | ankita  | ankita@gmail.com | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+    -> +----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> 1 row in set (0.00 sec)
+    ->
+    
+mysql> +----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid          | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 20 | ankita  | ankita@gmail.com | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+    -> +----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> 1 row in set (0.00 sec)
+    ->
+   
+mysql> +-----------------------------+
+    -> | designation='software engg' |
+    -> +-----------------------------+
+    -> |                           0 |
+    -> +-----------------------------+
+    -> 1 row in set (0.00 sec)
+    
+mysql> select * from emp where deptid not in(10,20)' at line 1
+mysql> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+    -> | 30 | gauri   | gauri@gmail.com   | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+    -> | 40 | vish    | vish@gmail.com    | swipper       |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+    -> | 44 | aman    | NULL              | NULL          |     NULL | NULL | NULL       | NULL       |   NULL |     40 | NULL       |
+    -> | 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+    -> | 60 | shilpa  | shilpa@gmail.com  | hr            |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+    -> | 70 | guru    | guru@gmail.com    | manager       |    96317 |   56 | 1995-02-01 | 1997-02-19 |  40000 |     80 | AB+        |
+    -> | 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+    -> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> 8 rows in set (0.00 sec)
+    
+mysql> select * from emp where designation!='salesman' and' at line 1
+mysql> +----+---------+------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid          | designation | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 40 | vish    | vish@gmail.com   | swipper     |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+    -> | 60 | shilpa  | shilpa@gmail.com | hr          |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+    -> | 70 | guru    | guru@gmail.com   | manager     |    96317 |   56 | 1995-02-01 | 1997-02-19 |  40000 |     80 | AB+        |
+    -> | 80 | akash   | akash@gmail.com  | mechnical   |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+    -> +----+---------+------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+    -> 4 rows in set (0.00 sec)
+    
+mysql> select * from emp where salary<=60000 and salary>=5' at line 1
+mysql> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 10 | kaveri  | kaveri@gmail.com  | engineer      |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+    -> | 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+    -> | 30 | gauri   | gauri@gmail.com   | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+    -> | 40 | vish    | vish@gmail.com    | swipper       |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+    -> | 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+    -> | 60 | shilpa  | shilpa@gmail.com  | hr            |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+    -> | 70 | guru    | guru@gmail.com    | manager       |    96317 |   56 | 1995-02-01 | 1997-02-19 |  40000 |     80 | AB+        |
+    -> | 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+    -> | 90 | akshay  | akshay@gmail.com  | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
+    -> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> 9 rows in set (0.00 sec)
+  
+mysql> select max(salary) from' at line 1
+mysql> +-------------+
+    -> | max(salary) |
+    -> +-------------+
+    -> |       80000 |
+    -> +-------------+
+    -> 1 row in set (0.00 sec)
+   
+mysql> select min(salary)' at line 1
+mysql> +------------+------------+--------+
+    -> | minimunpay | maximumpay | total  |
+    -> +------------+------------+--------+
+    -> |       5000 |      80000 | 375000 |
+    -> +------------+------------+--------+
+    -> 1 row in set (0.00 sec)
+    ->
+    -> mysql> select count('software engg') from emp where deptid=20;
+
+mysql> +------------------------+
+    -> | count('software engg') |
+    -> +------------------------+
+    -> |                      2 |
+    -> +------------------------+
+    -> 1 row in set (0.00 sec)
+    ->
+    -> mysql> select max(salary), min(salary) from emp where designation='salesman';
+
+mysql> +-------------+-------------+
+    -> | max(salary) | min(salary) |
+    -> +-------------+-------------+
+    -> |       25000 |       25000 |
+    -> +-------------+-------------+
+    -> 1 row in set (0.00 sec)
+    ->
+    
+mysql> select max(salary), min(salary) from' at line 1
+mysql> +-------------+-------------+
+    -> | max(salary) | min(salary) |
+    -> +-------------+-------------+
+    -> |       80000 |       25000 |
+    -> +-------------+-------------+
+    -> 1 row in set (0.00 sec)
+    
+
+   
+
+mysql> +----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid           | designation | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 10 | kaveri  | kaveri@gmail.com  | engineer    |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+    -> | 55 | pratik  | pratik@gmail.com  | salesman    |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+    -> | 65 | vignesh | vignesh@gmail.com | developer   |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+    -> +----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+    -> 3 rows in set (0.00 sec)
+    ->
+    -> mysql> select * from emp where salary>2500;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '+----+---------+-------------------+-------------+----------+------+------------' at line 1
+mysql> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 10 | kaveri  | kaveri@gmail.com  | engineer      |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+    -> | 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+    -> | 30 | gauri   | gauri@gmail.com   | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+    -> | 40 | vish    | vish@gmail.com    | swipper       |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+    -> | 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+    -> | 55 | pratik  | pratik@gmail.com  | salesman      |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+    -> | 60 | shilpa  | shilpa@gmail.com  | hr            |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+    -> | 65 | vignesh | vignesh@gmail.com | developer     |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+    -> | 70 | guru    | guru@gmail.com    | manager       |    96317 |   56 | 1995-02-01 | 1997-02-19 |  40000 |     80 | AB+        |
+    -> | 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+    -> | 90 | akshay  | akshay@gmail.com  | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
+    -> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> 11 rows in set (0.00 sec)
+    ->
+    -> mysql> select * from emp where designation='software engg';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '+----+---------+-------------------+---------------+----------+------+----------' at line 1
+mysql> +----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid          | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 20 | ankita  | ankita@gmail.com | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+    -> +----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> 1 row in set (0.00 sec)
+    ->
+    -> mysql> select * from emp where deptid in(10,30,40);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '+----+---------+------------------+---------------+----------+------+-----------' at line 1
+mysql> +----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid          | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 20 | ankita  | ankita@gmail.com | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+    -> | 30 | gauri   | gauri@gmail.com  | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+    -> | 44 | aman    | NULL             | NULL          |     NULL | NULL | NULL       | NULL       |   NULL |     40 | NULL       |
+    -> | 90 | akshay  | akshay@gmail.com | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
+    -> +----+---------+------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> 4 rows in set (0.00 sec)
+    ->
+    -> mysql> select * from emp where deptid in(10,20,40);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '+----+---------+------------------+---------------+----------+------+-----------' at line 1
+mysql> +----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid           | designation | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 10 | kaveri  | kaveri@gmail.com  | engineer    |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+    -> | 30 | gauri   | gauri@gmail.com   | clerk       |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+    -> | 44 | aman    | NULL              | NULL        |     NULL | NULL | NULL       | NULL       |   NULL |     40 | NULL       |
+    -> | 55 | pratik  | pratik@gmail.com  | salesman    |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+    -> | 65 | vignesh | vignesh@gmail.com | developer   |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+    -> | 90 | akshay  | akshay@gmail.com  | tester      |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
+    -> +----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+    -> 6 rows in set (0.00 sec)
+    ->
+    -> mysql> select * from emp where empname like 's%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '+----+---------+-------------------+-------------+----------+------+------------' at line 1
+mysql> +----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid           | designation | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 50 | shradha | shradha@gmail.com | salesman    |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+    -> | 60 | shilpa  | shilpa@gmail.com  | hr          |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+    -> +----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+    -> 2 rows in set (0.00 sec)
+    ->
+    
+mysql> select * from emp where empname like '%a%a%'' at line 1
+mysql> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+    -> | 44 | aman    | NULL              | NULL          |     NULL | NULL | NULL       | NULL       |   NULL |     40 | NULL       |
+    -> | 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+    -> | 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+    -> | 90 | akshay  | akshay@gmail.com  | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
+    -> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> 5 rows in set (0.00 sec)
+    ->
+    -> mysql> select * from emp where empname like '%A%A%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '+----+---------+-------------------+---------------+----------+------+----------' at line 1
+mysql> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+    -> | 44 | aman    | NULL              | NULL          |     NULL | NULL | NULL       | NULL       |   NULL |     40 | NULL       |
+    -> | 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+    -> | 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+    -> | 90 | akshay  | akshay@gmail.com  | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
+    -> +----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+    -> 5 rows in set (0.00 sec)
+    
+mysql> select * from emp where empname like '_____'' at line 1
+mysql> +----+---------+-----------------+-------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid         | designation | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+-----------------+-------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 30 | gauri   | gauri@gmail.com | clerk       |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+    -> | 80 | akash   | akash@gmail.com | mechnical   |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+    -> +----+---------+-----------------+-------------+----------+------+------------+------------+--------+--------+------------+
+    -> 2 rows in set (0.00 sec)
+    ->
+    -> mysql> select * from emp where salary between 20000 and 30000;
+
+mysql> +----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+    -> | id | empname | emailid           | designation | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
+    -> +----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+    -> | 10 | kaveri  | kaveri@gmail.com  | engineer    |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+    -> | 50 | shradha | shradha@gmail.com | salesman    |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+    -> +----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+    -> 2 rows in set (0.00 sec)
+    
+mysql> select * from emp order by salary desc;
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| 55 | pratik  | pratik@gmail.com  | salesman      |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+| 65 | vignesh | vignesh@gmail.com | developer     |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+| 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+| 60 | shilpa  | shilpa@gmail.com  | hr            |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+| 90 | akshay  | akshay@gmail.com  | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
+| 70 | guru    | guru@gmail.com    | manager       |    96317 |   56 | 1995-02-01 | 1997-02-19 |  40000 |     80 | AB+        |
+| 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+| 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+| 10 | kaveri  | kaveri@gmail.com  | engineer      |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+| 30 | gauri   | gauri@gmail.com   | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+| 40 | vish    | vish@gmail.com    | swipper       |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+| 22 | NULL    | NULL              | NULL          |     NULL |   47 | NULL       | NULL       |   NULL |   NULL | NULL       |
+| 44 | aman    | NULL              | NULL          |     NULL | NULL | NULL       | NULL       |   NULL |     40 | NULL       |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+13 rows in set (0.05 sec)
+
+
+mysql> select sum(salary) as totalsal from emp where designation='salesman';
++----------+
+| totalsal |
++----------+
+|   105000 |
++----------+
+1 row in set (0.02 sec)
+
+mysql> select sum(salary) as totalhr from emp where designation='hr';
++---------+
+| totalhr |
++---------+
+|   50000 |
++---------+
+1 row in set (0.00 sec)
+
+mysql> select sum(salary) as totaltester from emp where designation='tester';
++-------------+
+| totaltester |
++-------------+
+|       45000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> select sum(salary) as totalsoft from emp where designation='software engg';
++-----------+
+| totalsoft |
++-----------+
+|     60000 |
++-----------+
+1 row in set (0.00 sec)
+
+mysql> select sum(salary) as totaldep from emp where designation='developer';
++----------+
+| totaldep |
++----------+
+|    80000 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select sum(salary) as totaldclk from emp where designation='clerk';
++-----------+
+| totaldclk |
++-----------+
+|     15000 |
++-----------+
+1 row in set (0.00 sec)
+
+
+mysql> select count('DOJ') from emp where DOJ between '2016-01-01' and '2016-12-31';
++--------------+
+| count('DOJ') |
++--------------+
+|            0 |
++--------------+
+1 row in set (0.00 sec)
+
+
+mysql> select avg('salary'), max('salary') from emp where deptid in(20,30,40);
++---------------+---------------+
+| avg('salary') | max('salary') |
++---------------+---------------+
+|             0 | salary        |
++---------------+---------------+
+1 row in set, 6 warnings (0.07 sec)
+
+mysql> select avg(salary), max(salary) from emp where deptid in(20,30,40);
++-------------+-------------+
+| avg(salary) | max(salary) |
++-------------+-------------+
+|  51000.0000 |       80000 |
++-------------+-------------+
+1 row in set (0.00 sec)
+
+mysql> select count('DOJ') from emp where DOJ>'2016-12-31';
++--------------+
+| count('DOJ') |
++--------------+
+|            0 |
++--------------+
+1 row in set (0.00 sec)
+
+mysql> select max('DOJ') first  , min('DOJ') last   from emp ;
++-------+------+
+| first | last |
++-------+------+
+| DOJ   | DOJ  |
++-------+------+
+1 row in set (0.00 sec)
+
+mysql> select max(DOJ) first  , min(DOJ) last   from emp ;
++------------+------------+
+| first      | last       |
++------------+------------+
+| 2000-08-19 | 1991-08-19 |
++------------+------------+
+1 row in set (0.00 sec)
+
+mysql> select max(DOJ) last  , min(DOJ) first   from emp ;
++------------+------------+
+| last       | first      |
++------------+------------+
+| 2000-08-19 | 1991-08-19 |
++------------+------------+
+1 row in set (0.00 sec)
+
+mysql> select count(DOJ) from emp where DOJ>'2016-12-31';
++------------+
+| count(DOJ) |
++------------+
+|          0 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select upper(empname) from emp;
++----------------+
+| upper(empname) |
++----------------+
+| KAVERI         |
+| ANKITA         |
+| NULL           |
+| GAURI          |
+| VISH           |
+| AMAN           |
+| SHRADHA        |
+| PRATIK         |
+| SHILPA         |
+| VIGNESH        |
+| GURU           |
+| AKASH          |
+| AKSHAY         |
++----------------+
+13 rows in set (0.34 sec)
+
+mysql> select lower(empname) from emp;
++----------------+
+| lower(empname) |
++----------------+
+| kaveri         |
+| ankita         |
+| NULL           |
+| gauri          |
+| vish           |
+| aman           |
+| shradha        |
+| pratik         |
+| shilpa         |
+| vignesh        |
+| guru           |
+| akash          |
+| akshay         |
++----------------+
+13 rows in set (0.00 sec)
+
+
+mysql> select length(empname) from emp;
++-----------------+
+| length(empname) |
++-----------------+
+|               6 |
+|               6 |
+|            NULL |
+|               5 |
+|               4 |
+|               4 |
+|               7 |
+|               6 |
+|               6 |
+|               7 |
+|               4 |
+|               5 |
+|               6 |
++-----------------+
+13 rows in set (0.05 sec)
+
+
+mysql> select concat(empname,salary) from emp;
++------------------------+
+| concat(empname,salary) |
++------------------------+
+| kaveri20000            |
+| ankita60000            |
+| NULL                   |
+| gauri15000             |
+| vish5000               |
+| NULL                   |
+| shradha25000           |
+| pratik80000            |
+| shilpa50000            |
+| vignesh80000           |
+| guru40000              |
+| akash35000             |
+| akshay45000            |
++------------------------+
+13 rows in set (0.00 sec)
+
+mysql> select reverse(empname) from emp;
++------------------+
+| reverse(empname) |
++------------------+
+| irevak           |
+| atikna           |
+| NULL             |
+| iruag            |
+| hsiv             |
+| nama             |
+| ahdarhs          |
+| kitarp           |
+| aplihs           |
+| hsengiv          |
+| urug             |
+| hsaka            |
+| yahska           |
++------------------+
+13 rows in set (0.00 sec)
+
+mysql> select substr(empname,1,3) from emp;
++---------------------+
+| substr(empname,1,3) |
++---------------------+
+| kav                 |
+| ank                 |
+| NULL                |
+| gau                 |
+| vis                 |
+| ama                 |
+| shr                 |
+| pra                 |
+| shi                 |
+| vig                 |
+| gur                 |
+| aka                 |
+| aks                 |
++---------------------+
+13 rows in set (0.00 sec)
+
+
+mysql> select substr(empname,1,1) from emp where empname not in('a','e','i','o','u');
++---------------------+
+| substr(empname,1,1) |
++---------------------+
+| k                   |
+| a                   |
+| g                   |
+| v                   |
+| a                   |
+| s                   |
+| p                   |
+| s                   |
+| v                   |
+| g                   |
+| a                   |
+| a                   |
++---------------------+
+12 rows in set (0.00 sec)
+
+mysql> select substr(empname,1,5) from emp where empname not in('a','e','i','o','u');
++---------------------+
+| substr(empname,1,5) |
++---------------------+
+| kaver               |
+| ankit               |
+| gauri               |
+| vish                |
+| aman                |
+| shrad               |
+| prati               |
+| shilp               |
+| vigne               |
+| guru                |
+| akash               |
+| aksha               |
++---------------------+
+12 rows in set (0.00 sec)
+
+
+mysql> select * from emp where substr(empname,1,1) not in('a','e','i','o','u');
++----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid           | designation | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+| 10 | kaveri  | kaveri@gmail.com  | engineer    |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+| 30 | gauri   | gauri@gmail.com   | clerk       |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+| 40 | vish    | vish@gmail.com    | swipper     |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+| 50 | shradha | shradha@gmail.com | salesman    |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+| 55 | pratik  | pratik@gmail.com  | salesman    |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+| 60 | shilpa  | shilpa@gmail.com  | hr          |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+| 65 | vignesh | vignesh@gmail.com | developer   |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+| 70 | guru    | guru@gmail.com    | manager     |    96317 |   56 | 1995-02-01 | 1997-02-19 |  40000 |     80 | AB+        |
++----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+8 rows in set (0.00 sec)
+
+mysql> select instr(empname,'a') from emp;
++--------------------+
+| instr(empname,'a') |
++--------------------+
+|                  2 |
+|                  1 |
+|               NULL |
+|                  2 |
+|                  0 |
+|                  1 |
+|                  4 |
+|                  3 |
+|                  6 |
+|                  0 |
+|                  0 |
+|                  1 |
+|                  1 |
++--------------------+
+13 rows in set (0.00 sec)
+
+mysql> select replace(empname,'a','d') from emp;
++--------------------------+
+| replace(empname,'a','d') |
++--------------------------+
+| kdveri                   |
+| dnkitd                   |
+| NULL                     |
+| gduri                    |
+| vish                     |
+| dmdn                     |
+| shrddhd                  |
+| prdtik                   |
+| shilpd                   |
+| vignesh                  |
+| guru                     |
+| dkdsh                    |
+| dkshdy                   |
++--------------------------+
+13 rows in set (0.00 sec)
+
+mysql> select replace(empname,'a','z') from emp;
++--------------------------+
+| replace(empname,'a','z') |
++--------------------------+
+| kzveri                   |
+| znkitz                   |
+| NULL                     |
+| gzuri                    |
+| vish                     |
+| zmzn                     |
+| shrzdhz                  |
+| prztik                   |
+| shilpz                   |
+| vignesh                  |
+| guru                     |
+| zkzsh                    |
+| zkshzy                   |
++--------------------------+
+13 rows in set (0.00 sec)
+
+mysql> select * from emp where deptid=20 and salary>15000;
++----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid           | designation | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+| 10 | kaveri  | kaveri@gmail.com  | engineer    |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+| 55 | pratik  | pratik@gmail.com  | salesman    |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+| 65 | vignesh | vignesh@gmail.com | developer   |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
++----+---------+-------------------+-------------+----------+------+------------+------------+--------+--------+------------+
+3 rows in set (0.00 sec)
+
+
+mysql> select count(empname)  from emp where deptid=20 and salary>15000;
++----------------+
+| count(empname) |
++----------------+
+|              3 |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select count(*)  from emp where deptid=20 and salary>15000;
++----------+
+| count(*) |
++----------+
+|        3 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> select count(*) no, max(salary) highest from emp group by deptid;
++----+---------+
+| no | highest |
++----+---------+
+|  1 |    NULL |
+|  1 |   45000 |
+|  3 |   80000 |
+|  1 |   60000 |
+|  2 |   15000 |
+|  1 |    5000 |
+|  1 |   25000 |
+|  1 |   50000 |
+|  1 |   40000 |
+|  1 |   35000 |
++----+---------+
+10 rows in set (0.06 sec)
+
+
+mysql> select count(*) no from emp where designation='software engg' group by deptid;
++----+
+| no |
++----+
+|  1 |
++----+
+1 row in set (0.00 sec)
+
+mysql> select * from emp;
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| 10 | kaveri  | kaveri@gmail.com  | engineer      |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+| 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+| 22 | NULL    | NULL              | NULL          |     NULL |   47 | NULL       | NULL       |   NULL |   NULL | NULL       |
+| 30 | gauri   | gauri@gmail.com   | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+| 40 | vish    | vish@gmail.com    | swipper       |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+| 44 | aman    | NULL              | NULL          |     NULL | NULL | NULL       | NULL       |   NULL |     40 | NULL       |
+| 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+| 55 | pratik  | pratik@gmail.com  | salesman      |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+| 60 | shilpa  | shilpa@gmail.com  | hr            |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+| 65 | vignesh | vignesh@gmail.com | developer     |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+| 70 | guru    | guru@gmail.com    | manager       |    96317 |   56 | 1995-02-01 | 1997-02-19 |  40000 |     80 | AB+        |
+| 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+| 90 | akshay  | akshay@gmail.com  | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+13 rows in set (0.00 sec)
+
+mysql> select count(*) from emp group by DOJ;
++----------+
+| count(*) |
++----------+
+|        2 |
+|        1 |
+|        1 |
+|        1 |
+|        2 |
+|        2 |
+|        1 |
+|        1 |
+|        1 |
+|        1 |
++----------+
+10 rows in set (0.00 sec)
+
+mysql> select salary from emp group by designation;
++--------+
+| salary |
++--------+
+|   NULL |
+|  15000 |
+|  80000 |
+|  20000 |
+|  50000 |
+|  40000 |
+|  35000 |
+|  25000 |
+|  60000 |
+|   5000 |
+|  45000 |
++--------+
+11 rows in set (0.00 sec)
+
+mysql> select min(salary) from emp group by designation;
++-------------+
+| min(salary) |
++-------------+
+|        NULL |
+|       15000 |
+|       80000 |
+|       20000 |
+|       50000 |
+|       40000 |
+|       35000 |
+|       25000 |
+|       60000 |
+|        5000 |
+|       45000 |
++-------------+
+11 rows in set (0.00 sec)
+
+mysql> select deptid from emp group by deptid;
++--------+
+| deptid |
++--------+
+|   NULL |
+|     10 |
+|     20 |
+|     30 |
+|     40 |
+|     50 |
+|     60 |
+|     70 |
+|     80 |
+|     90 |
++--------+
+10 rows in set (0.00 sec)
+
+
+mysql> select deptid from emp group by deptid having sum(salary)>20000;
++--------+
+| deptid |
++--------+
+|     10 |
+|     20 |
+|     30 |
+|     60 |
+|     70 |
+|     80 |
+|     90 |
++--------+
+7 rows in set (0.00 sec)
+
+mysql> select deptid, avg(salary) from emp where empname not like's%' group by deptid having avg(salary)>20000;
++--------+-------------+
+| deptid | avg(salary) |
++--------+-------------+
+|     10 |  45000.0000 |
+|     20 |  60000.0000 |
+|     30 |  60000.0000 |
+|     80 |  40000.0000 |
+|     90 |  35000.0000 |
++--------+-------------+
+5 rows in set (0.05 sec)
+
+mysql> select deptid, avg(salary) from emp where empname not like's%' group by deptid and designation  having avg(salary)>20000;
++--------+-------------+
+| deptid | avg(salary) |
++--------+-------------+
+|     20 |  42222.2222 |
++--------+-------------+
+1 row in set, 10 warnings (0.00 sec)
+
+mysql> select salary from emp order by salary desc;
++--------+
+| salary |
++--------+
+|  80000 |
+|  80000 |
+|  60000 |
+|  50000 |
+|  45000 |
+|  40000 |
+|  35000 |
+|  25000 |
+|  20000 |
+|  15000 |
+|   5000 |
+|   NULL |
+|   NULL |
++--------+
+13 rows in set (0.00 sec)
+
+mysql> select salary from emp order by salary ;
++--------+
+| salary |
++--------+
+|   NULL |
+|   NULL |
+|   5000 |
+|  15000 |
+|  20000 |
+|  25000 |
+|  35000 |
+|  40000 |
+|  45000 |
+|  50000 |
+|  60000 |
+|  80000 |
+|  80000 |
++--------+
+13 rows in set (0.00 sec)
+
+mysql> select  empname, designation, DOJ from emp where deptid in(10,20,50,60) group by deptid order by salary desc;
++---------+-------------+------------+
+| empname | designation | DOJ        |
++---------+-------------+------------+
+| akshay  | tester      | 1994-04-19 |
+| shradha | salesman    | 1992-06-21 |
+| kaveri  | engineer    | 2000-08-19 |
+| vish    | swipper     | 1992-09-19 |
++---------+-------------+------------+
+4 rows in set (0.00 sec)
+
+
+mysql> select * from   emp;
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| id | empname | emailid           | designation   | mobileno | age  | DOB        | DOJ        | salary | deptid | bloodgroup |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+| 10 | kaveri  | kaveri@gmail.com  | engineer      |    88805 |   22 | 1996-02-01 | 2000-08-19 |  20000 |     20 | A+         |
+| 20 | ankita  | ankita@gmail.com  | software engg |     5678 |   26 | 1991-02-01 | 1991-08-19 |  60000 |     30 | B+         |
+| 22 | NULL    | NULL              | NULL          |     NULL |   47 | NULL       | NULL       |   NULL |   NULL | NULL       |
+| 30 | gauri   | gauri@gmail.com   | clerk         |    12345 |   29 | 1992-07-01 | 1999-08-19 |  15000 |     40 | O+         |
+| 40 | vish    | vish@gmail.com    | swipper       |    67890 |   32 | 1994-08-09 | 1992-09-19 |   5000 |     50 | O-         |
+| 44 | aman    | NULL              | NULL          |     NULL | NULL | NULL       | NULL       |   NULL |     40 | NULL       |
+| 50 | shradha | shradha@gmail.com | salesman      |    89549 |   42 | 1993-07-09 | 1992-06-21 |  25000 |     60 | A-         |
+| 55 | pratik  | pratik@gmail.com  | salesman      |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+| 60 | shilpa  | shilpa@gmail.com  | hr            |    27497 |   38 | 1993-07-09 | 1998-06-21 |  50000 |     70 | AB-        |
+| 65 | vignesh | vignesh@gmail.com | developer     |    29065 |   24 | 1995-03-04 | 1993-07-01 |  80000 |     20 | B-         |
+| 70 | guru    | guru@gmail.com    | manager       |    96317 |   56 | 1995-02-01 | 1997-02-19 |  40000 |     80 | AB+        |
+| 80 | akash   | akash@gmail.com   | mechnical     |    89543 |   45 | 1997-02-01 | 1994-04-19 |  35000 |     90 | A+         |
+| 90 | akshay  | akshay@gmail.com  | tester        |    89543 |   45 | 1997-02-01 | 1994-04-19 |  45000 |     10 | A+         |
++----+---------+-------------------+---------------+----------+------+------------+------------+--------+--------+------------+
+13 rows in set (0.00 sec)
+
+mysql> select deptid from emp group by deptid;
++--------+
+| deptid |
++--------+
+|   NULL |
+|     10 |
+|     20 |
+|     30 |
+|     40 |
+|     50 |
+|     60 |
+|     70 |
+|     80 |
+|     90 |
++--------+
+10 rows in set (0.00 sec)
+
+mysql> select count(*), deptid from emp group by deptid;
++----------+--------+
+| count(*) | deptid |
++----------+--------+
+|        1 |   NULL |
+|        1 |     10 |
+|        3 |     20 |
+|        1 |     30 |
+|        2 |     40 |
+|        1 |     50 |
+|        1 |     60 |
+|        1 |     70 |
+|        1 |     80 |
+|        1 |     90 |
++----------+--------+
+10 rows in set (0.00 sec)
+
+mysql>SELECT * from emp_info e inner JOIN emp i on e.deptid = i.deptid;
+
+SELECT * from emp_info e LEFT OUTER JOIN  emp i on e.deptid = i.deptid;
+
+SELECT * from emp_info e RIGHT OUTER JOIN emp i on e.deptid = i.deptid;
+
+SELECT * from emp_info e LEFT OUTER JOIN  emp i on e.deptid = i.deptid UNION SELECT * from emp_info e RIGHT OUTER JOIN emp i on e.deptid = i.deptid;
+   
+VIEW `ust`.`empview` 
+    AS
+ SELECT * from emp where designation = 'software';
+
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| ank                |
+| ankita             |
+| assg               |
+| employee           |
+| mysql              |
+| performance_schema |
+| sys                |
+| ust                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use employee;
+Database changed
+mysql> use ust;
+Database changed
+mysql> desc emp;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| id          | int(11)     | NO   | PRI | NULL    |       |
+| empname     | varchar(50) | YES  |     | NULL    |       |
+| emailid     | varchar(50) | YES  |     | NULL    |       |
+| designation | varchar(50) | YES  |     | NULL    |       |
+| mobileno    | int(11)     | YES  |     | NULL    |       |
+| age         | int(11)     | YES  |     | NULL    |       |
+| DOB         | date        | YES  |     | NULL    |       |
+| DOJ         | date        | YES  |     | NULL    |       |
+| salary      | int(11)     | YES  |     | NULL    |       |
+| deptid      | int(11)     | YES  |     | NULL    |       |
+| bloodgroup  | varchar(50) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+11 rows in set (0.01 sec)
+
+mysql> desc emp_info;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| deptid   | int(11)      | NO   | PRI | 11      |       |
+| dname    | varchar(120) | YES  |     | NULL    |       |
+| location | varchar(120) | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select * from emp_info;
++--------+------------+-----------+
+| deptid | dname      | location  |
++--------+------------+-----------+
+|     10 | accounting | bangalore |
+|     11 | research   | pune      |
+|     12 | sales      | newdelhi  |
+|     13 | operation  | chennai   |
+|     14 | admin      | mumbai    |
++--------+------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> insert into emp_info values(15, 'swipper','andra pradesh');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
++--------+------------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> set autocomit=0;
+ERROR 1193 (HY000): Unknown system variable 'autocomit'
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into emp_info values(16, 'dancer','kerla');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> roleback;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'roleback' at line 1
+mysql> rollback;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
++--------+------------+---------------+
+6 rows in set (0.00 sec)
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| ank                |
+| ankita             |
+| assg               |
+| employee           |
+| mysql              |
+| performance_schema |
+| sys                |
+| ust                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use employee;
+Database changed
+mysql> use ust;
+Database changed
+mysql> desc emp;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| id          | int(11)     | NO   | PRI | NULL    |       |
+| empname     | varchar(50) | YES  |     | NULL    |       |
+| emailid     | varchar(50) | YES  |     | NULL    |       |
+| designation | varchar(50) | YES  |     | NULL    |       |
+| mobileno    | int(11)     | YES  |     | NULL    |       |
+| age         | int(11)     | YES  |     | NULL    |       |
+| DOB         | date        | YES  |     | NULL    |       |
+| DOJ         | date        | YES  |     | NULL    |       |
+| salary      | int(11)     | YES  |     | NULL    |       |
+| deptid      | int(11)     | YES  |     | NULL    |       |
+| bloodgroup  | varchar(50) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+11 rows in set (0.01 sec)
+
+mysql> desc emp_info;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| deptid   | int(11)      | NO   | PRI | 11      |       |
+| dname    | varchar(120) | YES  |     | NULL    |       |
+| location | varchar(120) | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select * from emp_info;
++--------+------------+-----------+
+| deptid | dname      | location  |
++--------+------------+-----------+
+|     10 | accounting | bangalore |
+|     11 | research   | pune      |
+|     12 | sales      | newdelhi  |
+|     13 | operation  | chennai   |
+|     14 | admin      | mumbai    |
++--------+------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> insert into emp_info values(15, 'swipper','andra pradesh');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
++--------+------------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> set autocomit=0;
+ERROR 1193 (HY000): Unknown system variable 'autocomit'
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into emp_info values(16, 'dancer','kerla');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> roleback;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'roleback' at line 1
+mysql> rollback;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
++--------+------------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> insert into emp_info values(16, 'dancer','kerla');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> savepoint a;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into emp_info values(17, 'dancer','rajasthan');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> savepoint b;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from emp_info where deptid=13;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
+|     17 | dancer     | rajasthan     |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> rollback to a;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| ank                |
+| ankita             |
+| assg               |
+| employee           |
+| mysql              |
+| performance_schema |
+| sys                |
+| ust                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use employee;
+Database changed
+mysql> use ust;
+Database changed
+mysql> desc emp;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| id          | int(11)     | NO   | PRI | NULL    |       |
+| empname     | varchar(50) | YES  |     | NULL    |       |
+| emailid     | varchar(50) | YES  |     | NULL    |       |
+| designation | varchar(50) | YES  |     | NULL    |       |
+| mobileno    | int(11)     | YES  |     | NULL    |       |
+| age         | int(11)     | YES  |     | NULL    |       |
+| DOB         | date        | YES  |     | NULL    |       |
+| DOJ         | date        | YES  |     | NULL    |       |
+| salary      | int(11)     | YES  |     | NULL    |       |
+| deptid      | int(11)     | YES  |     | NULL    |       |
+| bloodgroup  | varchar(50) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+11 rows in set (0.01 sec)
+
+mysql> desc emp_info;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| deptid   | int(11)      | NO   | PRI | 11      |       |
+| dname    | varchar(120) | YES  |     | NULL    |       |
+| location | varchar(120) | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select * from emp_info;
++--------+------------+-----------+
+| deptid | dname      | location  |
++--------+------------+-----------+
+|     10 | accounting | bangalore |
+|     11 | research   | pune      |
+|     12 | sales      | newdelhi  |
+|     13 | operation  | chennai   |
+|     14 | admin      | mumbai    |
++--------+------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> insert into emp_info values(15, 'swipper','andra pradesh');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
++--------+------------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> set autocomit=0;
+ERROR 1193 (HY000): Unknown system variable 'autocomit'
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into emp_info values(16, 'dancer','kerla');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> roleback;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'roleback' at line 1
+mysql> rollback;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
++--------+------------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> insert into emp_info values(16, 'dancer','kerla');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> savepoint a;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into emp_info values(17, 'dancer','rajasthan');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> savepoint b;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from emp_info where deptid=13;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
+|     17 | dancer     | rajasthan     |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> rollback to a;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql>Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 5.7.27-log MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| ank                |
+| ankita             |
+| assg               |
+| employee           |
+| mysql              |
+| performance_schema |
+| sys                |
+| ust                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use employee;
+Database changed
+mysql> use ust;
+Database changed
+mysql> desc emp;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| id          | int(11)     | NO   | PRI | NULL    |       |
+| empname     | varchar(50) | YES  |     | NULL    |       |
+| emailid     | varchar(50) | YES  |     | NULL    |       |
+| designation | varchar(50) | YES  |     | NULL    |       |
+| mobileno    | int(11)     | YES  |     | NULL    |       |
+| age         | int(11)     | YES  |     | NULL    |       |
+| DOB         | date        | YES  |     | NULL    |       |
+| DOJ         | date        | YES  |     | NULL    |       |
+| salary      | int(11)     | YES  |     | NULL    |       |
+| deptid      | int(11)     | YES  |     | NULL    |       |
+| bloodgroup  | varchar(50) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+11 rows in set (0.01 sec)
+
+mysql> desc emp_info;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| deptid   | int(11)      | NO   | PRI | 11      |       |
+| dname    | varchar(120) | YES  |     | NULL    |       |
+| location | varchar(120) | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select * from emp_info;
++--------+------------+-----------+
+| deptid | dname      | location  |
++--------+------------+-----------+
+|     10 | accounting | bangalore |
+|     11 | research   | pune      |
+|     12 | sales      | newdelhi  |
+|     13 | operation  | chennai   |
+|     14 | admin      | mumbai    |
++--------+------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> insert into emp_info values(15, 'swipper','andra pradesh');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
++--------+------------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> set autocomit=0;
+ERROR 1193 (HY000): Unknown system variable 'autocomit'
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into emp_info values(16, 'dancer','kerla');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> roleback;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'roleback' at line 1
+mysql> rollback;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
++--------+------------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> insert into emp_info values(16, 'dancer','kerla');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> savepoint a;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into emp_info values(17, 'dancer','rajasthan');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> savepoint b;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from emp_info where deptid=13;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
+|     17 | dancer     | rajasthan     |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> rollback to a;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql>Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 5.7.27-log MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| ank                |
+| ankita             |
+| assg               |
+| employee           |
+| mysql              |
+| performance_schema |
+| sys                |
+| ust                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use employee;
+Database changed
+mysql> use ust;
+Database changed
+mysql> desc emp;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| id          | int(11)     | NO   | PRI | NULL    |       |
+| empname     | varchar(50) | YES  |     | NULL    |       |
+| emailid     | varchar(50) | YES  |     | NULL    |       |
+| designation | varchar(50) | YES  |     | NULL    |       |
+| mobileno    | int(11)     | YES  |     | NULL    |       |
+| age         | int(11)     | YES  |     | NULL    |       |
+| DOB         | date        | YES  |     | NULL    |       |
+| DOJ         | date        | YES  |     | NULL    |       |
+| salary      | int(11)     | YES  |     | NULL    |       |
+| deptid      | int(11)     | YES  |     | NULL    |       |
+| bloodgroup  | varchar(50) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+11 rows in set (0.01 sec)
+
+mysql> desc emp_info;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| deptid   | int(11)      | NO   | PRI | 11      |       |
+| dname    | varchar(120) | YES  |     | NULL    |       |
+| location | varchar(120) | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select * from emp_info;
++--------+------------+-----------+
+| deptid | dname      | location  |
++--------+------------+-----------+
+|     10 | accounting | bangalore |
+|     11 | research   | pune      |
+|     12 | sales      | newdelhi  |
+|     13 | operation  | chennai   |
+|     14 | admin      | mumbai    |
++--------+------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> insert into emp_info values(15, 'swipper','andra pradesh');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
++--------+------------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> set autocomit=0;
+ERROR 1193 (HY000): Unknown system variable 'autocomit'
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into emp_info values(16, 'dancer','kerla');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> roleback;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'roleback' at line 1
+mysql> rollback;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
++--------+------------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> insert into emp_info values(16, 'dancer','kerla');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> savepoint a;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into emp_info values(17, 'dancer','rajasthan');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> savepoint b;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from emp_info where deptid=13;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
+|     17 | dancer     | rajasthan     |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> rollback to a;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| ank                |
+| ankita             |
+| assg               |
+| employee           |
+| mysql              |
+| performance_schema |
+| sys                |
+| ust                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use employee;
+Database changed
+mysql> use ust;
+Database changed
+mysql> desc emp;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| id          | int(11)     | NO   | PRI | NULL    |       |
+| empname     | varchar(50) | YES  |     | NULL    |       |
+| emailid     | varchar(50) | YES  |     | NULL    |       |
+| designation | varchar(50) | YES  |     | NULL    |       |
+| mobileno    | int(11)     | YES  |     | NULL    |       |
+| age         | int(11)     | YES  |     | NULL    |       |
+| DOB         | date        | YES  |     | NULL    |       |
+| DOJ         | date        | YES  |     | NULL    |       |
+| salary      | int(11)     | YES  |     | NULL    |       |
+| deptid      | int(11)     | YES  |     | NULL    |       |
+| bloodgroup  | varchar(50) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+11 rows in set (0.01 sec)
+
+mysql> desc emp_info;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| deptid   | int(11)      | NO   | PRI | 11      |       |
+| dname    | varchar(120) | YES  |     | NULL    |       |
+| location | varchar(120) | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select * from emp_info;
++--------+------------+-----------+
+| deptid | dname      | location  |
++--------+------------+-----------+
+|     10 | accounting | bangalore |
+|     11 | research   | pune      |
+|     12 | sales      | newdelhi  |
+|     13 | operation  | chennai   |
+|     14 | admin      | mumbai    |
++--------+------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> insert into emp_info values(15, 'swipper','andra pradesh');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
++--------+------------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> set autocomit=0;
+ERROR 1193 (HY000): Unknown system variable 'autocomit'
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into emp_info values(16, 'dancer','kerla');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> roleback;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'roleback' at line 1
+mysql> rollback;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
++--------+------------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> insert into emp_info values(16, 'dancer','kerla');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> savepoint a;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into emp_info values(17, 'dancer','rajasthan');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> savepoint b;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from emp_info where deptid=13;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
+|     17 | dancer     | rajasthan     |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> rollback to a;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| ank                |
+| ankita             |
+| assg               |
+| employee           |
+| mysql              |
+| performance_schema |
+| sys                |
+| ust                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use employee;
+Database changed
+mysql> use ust;
+Database changed
+mysql> desc emp;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| id          | int(11)     | NO   | PRI | NULL    |       |
+| empname     | varchar(50) | YES  |     | NULL    |       |
+| emailid     | varchar(50) | YES  |     | NULL    |       |
+| designation | varchar(50) | YES  |     | NULL    |       |
+| mobileno    | int(11)     | YES  |     | NULL    |       |
+| age         | int(11)     | YES  |     | NULL    |       |
+| DOB         | date        | YES  |     | NULL    |       |
+| DOJ         | date        | YES  |     | NULL    |       |
+| salary      | int(11)     | YES  |     | NULL    |       |
+| deptid      | int(11)     | YES  |     | NULL    |       |
+| bloodgroup  | varchar(50) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+11 rows in set (0.01 sec)
+
+mysql> desc emp_info;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| deptid   | int(11)      | NO   | PRI | 11      |       |
+| dname    | varchar(120) | YES  |     | NULL    |       |
+| location | varchar(120) | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select * from emp_info;
++--------+------------+-----------+
+| deptid | dname      | location  |
++--------+------------+-----------+
+|     10 | accounting | bangalore |
+|     11 | research   | pune      |
+|     12 | sales      | newdelhi  |
+|     13 | operation  | chennai   |
+|     14 | admin      | mumbai    |
++--------+------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> insert into emp_info values(15, 'swipper','andra pradesh');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
++--------+------------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> set autocomit=0;
+ERROR 1193 (HY000): Unknown system variable 'autocomit'
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into emp_info values(16, 'dancer','kerla');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> roleback;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'roleback' at line 1
+mysql> rollback;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
++--------+------------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> insert into emp_info values(16, 'dancer','kerla');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> savepoint a;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into emp_info values(17, 'dancer','rajasthan');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> savepoint b;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from emp_info where deptid=13;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
+|     17 | dancer     | rajasthan     |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> rollback to a;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| ank                |
+| ankita             |
+| assg               |
+| employee           |
+| mysql              |
+| performance_schema |
+| sys                |
+| ust                |
++--------------------+
+9 rows in set (0.00 sec)
+
+mysql> use employee;
+Database changed
+mysql> use ust;
+Database changed
+mysql> desc emp;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| id          | int(11)     | NO   | PRI | NULL    |       |
+| empname     | varchar(50) | YES  |     | NULL    |       |
+| emailid     | varchar(50) | YES  |     | NULL    |       |
+| designation | varchar(50) | YES  |     | NULL    |       |
+| mobileno    | int(11)     | YES  |     | NULL    |       |
+| age         | int(11)     | YES  |     | NULL    |       |
+| DOB         | date        | YES  |     | NULL    |       |
+| DOJ         | date        | YES  |     | NULL    |       |
+| salary      | int(11)     | YES  |     | NULL    |       |
+| deptid      | int(11)     | YES  |     | NULL    |       |
+| bloodgroup  | varchar(50) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+11 rows in set (0.01 sec)
+
+mysql> desc emp_info;
++----------+--------------+------+-----+---------+-------+
+| Field    | Type         | Null | Key | Default | Extra |
++----------+--------------+------+-----+---------+-------+
+| deptid   | int(11)      | NO   | PRI | 11      |       |
+| dname    | varchar(120) | YES  |     | NULL    |       |
+| location | varchar(120) | YES  |     | NULL    |       |
++----------+--------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> select * from emp_info;
++--------+------------+-----------+
+| deptid | dname      | location  |
++--------+------------+-----------+
+|     10 | accounting | bangalore |
+|     11 | research   | pune      |
+|     12 | sales      | newdelhi  |
+|     13 | operation  | chennai   |
+|     14 | admin      | mumbai    |
++--------+------------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> insert into emp_info values(15, 'swipper','andra pradesh');
+Query OK, 1 row affected (0.13 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
++--------+------------+---------------+
+6 rows in set (0.00 sec)
+
+
+mysql> set autocommit=0;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into emp_info values(16, 'dancer','kerla');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> roleback;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'roleback' at line 1
+mysql> rollback;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
++--------+------------+---------------+
+6 rows in set (0.00 sec)
+
+mysql> insert into emp_info values(16, 'dancer','kerla');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> commit;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> rollback;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> savepoint a;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into emp_info values(17, 'dancer','rajasthan');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> savepoint b;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> delete from emp_info where deptid=13;
+Query OK, 1 row affected (0.07 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
+|     17 | dancer     | rajasthan     |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql> rollback to a;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> select * from emp_info;
++--------+------------+---------------+
+| deptid | dname      | location      |
++--------+------------+---------------+
+|     10 | accounting | bangalore     |
+|     11 | research   | pune          |
+|     12 | sales      | newdelhi      |
+|     13 | operation  | chennai       |
+|     14 | admin      | mumbai        |
+|     15 | swipper    | andra pradesh |
+|     16 | dancer     | kerla         |
++--------+------------+---------------+
+7 rows in set (0.00 sec)
+
+mysql>
