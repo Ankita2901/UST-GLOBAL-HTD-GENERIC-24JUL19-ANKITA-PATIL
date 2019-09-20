@@ -1,0 +1,663 @@
+********java is a platform indipendent language*********** ( JAVA TEA POINT ) (head first java) (java programming) 
+---------------------------------------------------------------------------------------------------------------------
+
+- Data Types
+there are two types
+1) Primitive Datatypes
+2) Non-primitive Datatypes
+
+
+1) Primitive Datatypes
+- there are 8 primitive data types
+1)byte
+2)short
+3)int
+4)long
+5)float
+6)double
+7)char
+8)boolean
+
+2)Non-primitive Datatypes
+classes, interfaces and arrays
+
+
+--------------------------------------------------------------------------------------------------
+Keywords
+-these words have a predefined meaning in a program
+-there are 53 keywords 
+-in these 3 are literals ( true, false and null )
+-and 48 are in use 
+
+--------------------------------------------------------------------------------------------------
+identifiers
+-these are names given to class, object or variables
+-the name can have A-Z, a-z, 0-9, _ and $ 
+- Rules for identifiers
+1) it should start with alphabeta
+2)it should not start with numbers
+3)No special characters are allowed only _ and $
+4)no space between chaeracter is allowed
+
+------------------------------------------------------------------------------------------------------
+variables 
+- variables is the name given to a memory 
+-Syntax
+<data type><variable-name/identifier>
+declaration
+initialization
+utilization
+Ex: int i = 10;
+
+-------------------------------------------------------------------------------------------------
+Operators
+1)Arithematic -  +, -, *, /, %
+2)Assignment - +=, -=, *=, /=, ==
+3)Increment or decrement - pre-increment/decrement, post-increment/decremnet (++, --)
+4)Relational - >=, <=, >>, <<, !=, ==
+5)Logical - And(&&), OR(||), Not(!)
+
+--------------------------------------------------------------------------------------------------
+class 
+- class is a logical entity using which object can be created
+
+Object
+- object is a physical entity
+
+-Syntax
+
+class class_name{
+
+state - data members
+
+behaviours - member funtions , methods
+
+}
+
+-------------------------------------------------------------------------------------------------------
+
+control flow statements
+1)if
+2)if-else
+3)else-if
+4)Switch
+
+
+1) if 
+- Syntax
+if(condition)
+{
+
+statement;
+
+};
+
+
+2)if-else
+-Syntax
+If(condition){
+
+statement 1;
+
+}else{
+
+Statement2;
+
+}
+
+
+
+3)else-if
+- Syntax
+if(condition)
+{
+
+statemnet;
+
+}else if(condition){
+
+
+statement1;
+
+}else{
+
+
+
+statement2;
+
+
+}
+
+
+
+4)Switch
+- Syntax
+
+Switch(condition)
+{
+
+case1:
+break;
+
+case2:
+break;
+
+default: statement;
+
+}
+
+default can be written anywhere but then,
+default: statement;
+break;
+
+-------------------------------------------------------------------------------------------------------------------------
+
+Looping statements
+condition is always boolean
+1)for
+2)while
+3)do while
+
+1)for
+- Syntax
+
+for( declaration/intialization; condition; increment/decrement)
+{
+
+statement;
+
+}
+
+
+- here the variable can be declared outside the for block and incremented/decremented inside the for loop
+declaration
+
+for(initialization; condition;       )
+{
+
+statement;
+
+++/--;
+
+}
+
+-if no condition and increment or decrement is given then it will loop infinitely 
+
+for(   ;   ;    )
+
+2)while
+- Syntax
+
+while(condition)
+{
+
+statement;
+
+increment/decrement;
+}
+
+
+here it will check for condition first only then it will enter the while loop
+
+
+3)do while
+- Syntax 
+do
+{
+
+statement;
+
+increment/decremnet;
+
+}while(condition);
+
+we use do while if we want to execute the condition atleast once before condition is checked
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+Association HAS-A relationship
+-its a proccess of associating one or more objects to another
+-there are two types of association
+1)Composition
+2)Aggregation
+
+1)Compostion
+-Also known as strong HAS-A relationship
+-its a special kind of association where the exisitance of associated object is dependent upon owner object
+-when owner object is destroyed the associated object also get destroyed
+Ex:Fish and water,   Popup window and button.
+
+
+2)Aggregation
+-Also known as weak HAS-A relationship
+-its a special kind of association where the exisitance of associated object does not depend upon the owner object
+-when owner object is destroyed the associated object will still exists
+Ex:Employee and company
+
+------------------------------------------------------------------------------------------------------------------------------
+
+Inheritance
+-In inheritance Object class is the super most class
+-here an class is inherited by using extends keyword for its super class
+-to use the method of its parent class @Override is used or it takes by default
+-the types of inheritance are
+1)Single level
+2)Multi level
+3)Hiarchical
+3)Hybrid
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+Constructor
+-it has same name as the class
+-there are two types of constructors
+1)Default
+2)Parametric
+
+1)Default
+-the compiler generates default constructor during the compilation
+
+2)Parametric
+-this constructor is generated by user 
+ Syntax
+constructor-name(argument){
+statement
+}
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+ method 
+- is one to perform a particular task 
+- there are two types
+1) syntax
+
+void identifier( )
+{
+
+statement;
+
+}
+
+
+
+2)Syntax
+
+datatype identifier(argument)
+{
+statement;
+return statementl;
+
+}
+
+return statement should be the last executable statement
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+Overloadoing
+*Method overloading
+*Constructor overloading
+
+* Method Overloading
+- A class having methods of same name but having change in signature is called method overloading
+-Change in signature
+1)No of parameters
+2)Sequence of parameters
+3)Data type of parameters
+
+Synatax
+- return-type method-name(Signature)
+{
+logic/defination
+}
+
+- In method overloading return type of methods is not considered
+- Method overloading is nothing but having different forms of same activity or behaviour that is nothing but polymorphism
+-it is used to achieve compile-time polymorphism
+
+* Constructor Overloading
+- It is same as that of method overloading . class having constructors of same name with change in signature.
+
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+
+ interface, packages
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Exception
+CustomException takes properties from throwable
+Try-catch we can also have inside finally block
+-Syntax for try with resources
+try(){
+
+}catch(){
+
+}
+-------------------------------------------------------------------------------------------------------------------------------------
+Collections Framework
+-Collections are like containers that group multiple items in a single unit. Collections are used almost in every programming language and when java arrived
+It also came with few collection classes. java 1.2 provided Collection Framework 
+Ex: list of names
+
+java Collection Framework interfaces provide abstract data type to represent collection
+-java.util.connection is the root interface of Collection Interface
+
+Map is the only interface that dosent inherit from collection interface but its part of collections framework
+
+-important methods size(), iterator(), add(), remove(), clear()
+
+-important interfaces java.util.list, java.util.set, java.util.queue, java.util.Map
+
+-these are all present in java.util package
+
+Implementation classes - collection in java provides core implementation classes for collections. we can use them to create different types of collections in java program
+-important collection classes ArrayList, LinkedList, HashMap, TreeMap, HashSet, TreeSet
+
+-if we need some special collection class, we can ectenf them to create our custom collection
+
+
+* All the core collection interface are generic
+-public interface collection<E>. 
+the <E> syntax is for generics and when we declare collection we should specify the type of object it can contain
+-it helps in reducing run-time errors by type-checking the objects at compile-time.
+-to keep the number of core collection interfaces manageable, the java platform dosent provide seperate interfaces for each variant of each collection type.
+-If an unsupported operation is invokes, a collection implementation theows an unsupportedOperationException
+
+-benefits of java collections Framework
+reduced Development Effort
+Increased Quality
+Reusability and Interoperability
+
+
+Collection Interface
+-This is root collection hierarchy. A collection represents a group of objects known as its elements. the java platform dosent provide any direct implemenations of this interface
+- The interface has methods to tell you how many elements are in the collection (size, isEmplty), to check whether a given object is in the collection(contains), to add or remove an element from the collection (add, remove), and to provide an iterator over the collection (iterator)  
+
+* A set is a collection does not contains no duplicate elements and at most one null element 
+this interface models the mathematical set adstraction and is used to represent sets, such as the deck of cards
+the java platform contains three general-purpose set implementations: HasSet, TreeSet, and LinkedHashSet
+Set interface dosent allow any random-access to an element 
+
+* list is an orrdered collection . the user of this interface  has precise conttol over where in the list each element is inserted. the user can access elements by their integer index (position in the list), and search for elements in the list.
+-Unlike sets , lists typically allow duplicate elements. more formally, lists typically allow pairs of elements <tt>e1</tt> and <tt>e2</tt> such that e1.equals(e2), and they typically allow multiple null elements if they allow null elements at all
+- ArrayList and LinkedList are implementation classes of list interface
+-List interface provides useful methods to add or remove elements based on the index and to get sub-list using the index
+
+*Queue interface
+Queues  order elements in FIFO
+-A collection designed for holding elements prior to processing
+-Besides basic {@link java.util.collection collection} operations, queues provide additional insertion, extraction, and inspection operations. Each of these methods exists in two forms: one throws an exception if the operations fails, the other returns  a special value (either {@code fals}
+-@param e the element to add
+@return (@coe true} if thr element was added to this queue
+-E add();
+-E remove();
+- E poll();
+-E element();
+- E peek();
+= offer returntype boolean
+-throws exception ClassCastException, NullPointerException, IllegalArgumrntException
+-return {@code true} if the element was added to this queue, else {@code false}
+- inserts the specified element into this queue if it is possible to do so immediately without violayiong capacity restrictions
+
+E poll();
+- retrives and removes the head of this queue, or returns {@code null} if this queue is empty
+
+E element();
+- retrives, but does not remove, the head of this queue. this method differs from {@link #peek peek} only in that it throws an exception if this queue is emplty
+- return head of this queue
+-throws NoSuchElementException
+
+E peek();
+-retrives , but does not remove, the head of this queue, or returns {@code nill} if this queue is emplty but element() returns exception
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+* Map interface
+- Map <k,V>
+- A map cannot contain duplicate keys
+-each key can map to at most one value
+- java Map is an Object that maps keys to values 
+
+-the java contains three general-purpose Map implemenations:
+HasMap, TreeMap, and LinkedHashMap
+- The basic operations of Map are put, get, containsKey, containsValue, size, and isEmplty
+
+*HashMap here the return type is the object and the value changed in key will change only that value
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+HashSet( in notebook) 
+-it has four constructors
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+TreeSet Class
+ - A NavigableSet implementation based on a TreeMap
+-The elements are ordered using their comparable natural ordering , or by a comparator provided at set creation time
+-compareTo<T o>
+-comparator<T>
+ - its two arguments for compare
+compare(T o1, T o2);
+
+TreeSet(NavigableMap<E,Object> m){
+this.m = m;
+}
+- constructs a set backed by thr specified navigable map
+
+
+
+public TreeSet(){
+ this(new TreeMap<E,Object>());
+}
+ - constructs a new, empty tree set, sorted according to the natural ordering of its elements
+-All elements insetred into the set must implement the comparable interface.
+-all such elements must be mutually comparable e1.compareTo(e2) must not throw a ClassCastException for any elements e1 and e2 in the set
+
+
+public TreeSet(comparator<? super E> comparator) {
+ this(new TreeMap<>(comparator));
+}
+ -the comparator that will be used to order this set
+-if null, the comparable ordering of the elements will be used
+
+
+public TreeSet(Collection<? extends E> c){
+this();
+addAll(c);
+}
+
+
+public TreeSet(SortedSet<E> s){
+this(s.comparator());
+addAll(s);
+}
+
+*Five constructors and all are backed  by Map
+
+* proper order then TreeSet no then HashSet
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ArrayList class
+ArrayList is the resizable-array implementation of the List interface
+-Implements all optional list operations, and permits all elements including null
+-it is unsynchronized
+
+public ArrayList(int initalCapacity){
+if(initialCapacity > 0 ) {
+it will create empty ArrayList
+
+
+public ArrayList(){
+this.elementData = D
+default size with size 10
+
+
+public ArrayList(collection?<
+constructs a list containing the elements of specified collection in order they are returned by the colletions iterator
+
+*helps to manuplate the size of the array which is used by ArrayList
+
+public void trimToSize(){
+modCount++;
+if (size < elementData.length){
+elementData = ( size ==0)
+? EMPTY_ELEMENTDATA
+: Arrays.copyof(elementData, size);
+}
+}
+-trims the capacity of this ArrayList instance to be the lists current size
+
+
+
+public void ensureCapacity(int minCapacity){
+minCapacity to desired minCapcity
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Java Lambda Exceptions
+-lamda exception is a new and important feature of java which is included injava SE 8
+*The lambda exception is used to provide the implementaion of a functional interface*
+-In case of lambda expression, we dont need to define the method again for providing the implmentation.
+-@functionalInterface
+
+#Why use Lambda Expression
+1. to provide the implementation of fuctional interface
+2.Less coding
+
+Syntax
+(argument-list) -> {body};
+
+
+1)argument list - it can be empty or non empty as well
+2)Arrow-token - it is used to link argument-list
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Thread
+* A thread is a single sequence of exectuble code within a larger program
+-All programs ao far have used just one thread = the main thread that starts automatically when you run the program
+-java lets you create programs that start additional threads to perform specific tasks
+
+Ex: Web browsers can download files while letting you view web pages. when you download a file in a web browser, the browser starts a seperate thread to handle the download
+    Word processors can also check your spelling as you type. depending on how the word processor is written, it may run the spell checks
+
++ Multithreading in java
+- multithreading in java is a feature that allows concurrent execution of two or more parts of program for maximum utilizatio of CPU.
+-Each part of such program is called as thread.
+-So, threads are light-weight processors within a process
+
+
+# In java thread can be created in two ways
+1) By extending the java.lang.Thread class
+2) By implementing java.lang.Runnable interface
+these are present in java.lang package
+
+
+1)- We create a class that extends the java.lang.Thread class.
+-this class ovrrides run() method available in the thread class.
+- a thread begins inside a run();
+-we create an object of our new class and call start() method to start the execution of a thread .
+- start() invokes the run() method on the thread object
+
+2) Thread cration by implementing the Runnable interface
+-we create a new class which implements java.lang.Runnable interface and override run() methos
+-then we instantiate a thread object and call start() method 
+
+#every thread will have three important properties
+1) Thread Nmae
+2)Thread id
+3) Thread Priority
+
+1) Thread names can be created by programmer in order to identify the threads
+2) Thread id will be created by compiler. It is a unique number or id which is created and assigned by the thread scheduler to evry single thread to identify them uniquely
+3) It is used by thread scheduler to decide the order of execution of the given threads
+
+* A thread dies naturally when the run method exits
+
+*Thread Life Cycle (in NB )
+-A thtead can be in one of the following states
+a) NEW - A thread that has not yet started is in this state
+b) RUNNABLE - A thread executing in the java virtual machine is in this state { start() }
+c) BLOCKED - A tBHhread that is blocked waiting for a monitor lock is in this state { yield(), sleep(), join() }
+d) WAITING - A thread that is waiting indefinitely for another thread to perform a particular action is in this state { wait(), notify(), notifyAll() }
+e) TERMINATED - A thread that has exited is in thi state { stop() }
+
+Race Condition : Race condition occurs in a multi-threaded environment when more than one thread try to access a shared resource at the same time. 
+-it is safe if multiple threads are trying to read a shared resource, as long as they are not trying to change it.
+
+
+*Synchronization*
+-In many cases concurrently running threads shared data and two threads try to do operations on the same variables at the same tiem. this often results in corrupt data as two threads try to operate on the same data
+-A proper solution is to provide some kind of lock primitivr. only one thread can acquire a particular time. this can be achieved by using a keyword "synchronized"
+-By using the synchronize only one thread can access the method at a time and a second call will be blocked until the first call rturns or wait() is called inside the synchronized method
+
+Deadlock
+-Deadlock in java is a programming situation where two or more threads are blocked forever. java deadlock situation aries with at least two thread and two or more resources
+-We can overcome by ITC " Inter Thread Communication" by the wait() notify() notifyAll()
+
+wait()- it will pause the execution thread
+notify() - wakes up the firts thread called wait() on the same object
+notifyAll()-
+
+1)difference between run() and start()
+2)difference between sleep() and wait()
+
+2)
+Sleep():
+
+1) It is a static method on Thread class.
+
+2) It makes the current thread into the "Not Runnable" state for specified amount of time. During this time, the thread keeps the lock (monitors) it has acquired.
+
+3)  The sleep() method belongs to java.lang.Thread class, thus can be called on Threads.
+
+4) The sleep() method can be called from any context.
+
+5) The sleep() method does not releases the lock of an object for specified time or until interrupt.
+
+6) A sleeping can be awaked by interrupt or time expires.
+
+7) The sleep() method is static method belonging to Thread class. There is a common mistake to write t.sleep(1000) because sleep() is a class method and will pause the current running thread not t.
+ 
+
+Wait():
+
+1) It is a method on Object class.
+
+2)  It makes the current thread into the "Not Runnable" state. Wait is called on a object, not a thread. Before calling wait() method, the object should be synchronized, means the object should be inside synchronized block. The call to wait() releases the acquired lock.
+
+3)  The wait() method belongs to java.lang.Object class, thus can be called on any Object. 
+
+4)  The wait() method can only be called from Synchronized context i.e. using synchronized block or synchronized method
+
+5) The wait() method releases the lock on an object and gives others chance to execute
+
+6) A waiting thread can be awake by notify() or notifyAll() method. 
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+*RegEx
+-Regex(Regular Expression)
+-The regular expression in java defines a pattern for a string
+-Regular Expression can be used to search, edit or maipulate text.
+
+-java Regex classes are prsent in jva.util.regex package that contains three classes- Pattern, Matcher, PatterSyntaxException
+ 
+Pattern
+- Pattern object is the compiled version of the regular expression.
+-Pattern class dosent have any constructor and we use its public static method compile() to create pattern object by passing regular expression argument
+
+PatternSynraxException
+-is an unchcked thrown if the regular expression syntax is not correct
+
+Matcher
+-is the java regx engine object that matches the input String pattern with the pattern object created
+-Matcher class dosent have any public constructor and we get a Matcher object using pattern object matcher() method that takes the input String as argument
+-We then use matches() method that returns boolen result based on input string matches the regex pattern or not
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+difference between complier & Interpreter
+A compiler is a piece of code that translates the high level language into machine language. 
+When a user writes a code in a high level language such as Java and wants it to execute, a specific compiler which is designed for Java is used before it will be executed. 
+The compiler scans the entire program first and then translates it into machine code which will be executed by the computer processor and the corresponding tasks will be performed.
+
+Interpreter also convert the high level language into machine readable binary equivalents. 
+Each time when an interpreter gets a high level language code to be executed, it converts the code into an intermediate code before converting it into the machine code. 
+Each part of the code is interpreted and then execute separately in a sequence and an error is found in a part of the code it will stop the interpretation of the code without translating the next set of the codes.
+
