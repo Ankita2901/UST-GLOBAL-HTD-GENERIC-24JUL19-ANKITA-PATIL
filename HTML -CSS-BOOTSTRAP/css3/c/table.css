@@ -1,0 +1,28 @@
+table{
+    width: 100%;
+    text-align: center;
+    font-family: cursive;
+}
+table,th,td{
+    
+    border-collapse: collapse;
+    border-radius: 50px;
+    padding: 5px;
+    cursor: pointer;
+}
+th{
+    background-color: rgb(4,4,41);
+    color: white;
+}
+tr:nth-child(even){
+    background-color: orangered;
+
+}
+tr:nth-child(odd){
+    background-color:palegreen;
+
+}
+td:hover{
+    background-color:powderblue;
+    color: oldlace;
+}

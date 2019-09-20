@@ -1,0 +1,30 @@
+hr{
+    width: 365px;
+    margin-right: 580px;
+}
+    body{
+        margin-left: 440px;
+        background-color: teal;
+    }
+    form{
+        margin-top: 40px;
+        border:solid black;
+        width: 570px;
+        height: 500px;
+        text-align:justify;
+        background-color: grey;
+        
+    }
+    h1{
+        margin-right: 350px;
+    }
+    button{
+            width: 100px;
+            height: 40px;
+            margin-left: 230px;
+            background-color: chocolate;
+            
+        
+            
+    }
+    

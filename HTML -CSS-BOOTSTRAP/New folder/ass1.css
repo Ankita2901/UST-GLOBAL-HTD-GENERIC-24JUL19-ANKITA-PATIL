@@ -1,0 +1,32 @@
+table,th,td{
+    border-radius: 50px;
+    
+    padding: 20px;
+    
+    cursor: pointer;
+    
+}
+th{
+    background-color: royalblue;
+    color: azure;
+}
+tr:nth-child(even){
+    background-color: aqua;
+    
+}
+tr:nth-child(odd){
+    background-color: yellow;
+    
+}
+tr:hover{
+    background-color: pink;
+    color: blueviolet
+}
+td:hover{
+    background-color: greenyellow;
+    color: brown;
+}
+th:hover{
+    background-color: aliceblue;
+    color: olivedrab;
+}
