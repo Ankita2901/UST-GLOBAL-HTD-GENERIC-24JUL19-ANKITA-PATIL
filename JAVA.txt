@@ -1,4 +1,4 @@
-********java is a platform indipendent language*********** ( JAVA TEA POINT ) (head first java) (java programming) 
+********java is a platform indipendent language*********** 
 ---------------------------------------------------------------------------------------------------------------------
 
 - Data Types
