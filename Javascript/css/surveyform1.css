@@ -1,0 +1,19 @@
+body{
+    margin-left: 510px;
+    border: solid black;
+    width: 500px;
+    background-color: peru;
+    
+    
+    
+}
+
+hr{
+    width: 450px;
+    margin-left: 20px;
+}
+button{
+    margin-left: 200px;
+    background-color: dodgerblue;
+}
+
