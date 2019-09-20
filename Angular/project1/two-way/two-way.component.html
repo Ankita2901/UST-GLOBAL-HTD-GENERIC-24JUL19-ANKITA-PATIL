@@ -1,0 +1,8 @@
+<div class="col-md-4 offset-md-4 card card-body mt-5">
+    <input type="text" [(ngModel)]="dataFromInput" class="from-control">
+    </div>
+<!--<h1 class="text-center">{{dataFromInput}}</h1>
+<img src="{{dataFromInput}}" alt="" srcset="">-->
+<h1 class="text-center" [style.background]='backgroundColor' >event and property binding</h1>
+<button class="btn-btn-primary" (click)='changeColor(dataFromInput)' >changeColor</button>
+

@@ -1,0 +1,13 @@
+
+<div class="col-md-4 offset-md-4 mt-4 card card-body">
+  <form action="" class="form-group"
+   #userForm="ngForm" 
+  (ngSubmit)='postUser(userForm)'>
+     <h3 style="text-align: center"> Register!!!</h3>
+   <input type="text" placeholder="enter your name" class="form-control mb-3 mt-4"name="name" #name="ngModel" ngModel>
+   <input type="email" placeholder="enter your email" class="form-control mb-3" name="email" #email="ngModel" ngModel>
+   <input type="tel" placeholder="enter your phone number" class="form-control mb-3" name="phNo" #phNo="ngModel" ngModel>
+    <button type="submit" class="btn btn-primary float-left">submit</button>
+
+</form>
+</div>

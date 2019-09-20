@@ -1,0 +1,29 @@
+<div class="container">
+        <div *ngIf='condition' class="alert alert-success alert-info fade show"  role="alert">
+                <strong>deleted successfully!!!</strong> 
+                <button type="button" class="Close" (click)='cut()' aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button></div>
+
+<table class = 'table table-bordered mt-5 table-hover' >          
+    <thead class="thead-dark">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>city</th>
+            <th>delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = 'let p of users' >
+            <td>{{p.id}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.city}}</td>
+            <td><button class="btn btn-outline-danger " (click)='removeUser(p)'>Remove</button></td>
+        </tr>
+    
+    </tbody>  
+</table>
+
+</div>
+
