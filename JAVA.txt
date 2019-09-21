@@ -19,7 +19,6 @@ there are two types
 8)boolean
 
 2)Non-primitive Datatypes
-classes, interfaces and arrays
 
 
 --------------------------------------------------------------------------------------------------
