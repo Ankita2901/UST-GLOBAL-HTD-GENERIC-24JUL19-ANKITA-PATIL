@@ -1,0 +1,11 @@
+<p>task-manager works!</p>
+<div class="container col-md-3 offset-md-4 ">
+    <form action="" #user='ngForm' (onSubmit)='collect(user)'>
+    <div class="card card-body">
+        <div class="form-group">
+            <input type="text" name="task" placeholder="enter the text" required #task='ngModel' ngModel>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+</form>
+</div>
