@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 
 
-public class Dataset {
+public class ContactData {
 
 	public static void main(String[] args) {
 		ArrayList<Contact> hm = new ArrayList<Contact>();
