@@ -4,7 +4,7 @@ package com.dev.Contacts;
 import java.util.Scanner;
 
 
-public class Contactlist {
+public class ContactImp {
 	Scanner sc = new Scanner(System.in);
 
 	public void contact(Contact value)
