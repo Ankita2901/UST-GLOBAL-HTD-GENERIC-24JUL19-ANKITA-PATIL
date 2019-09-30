@@ -15,7 +15,7 @@ public class ContactData {
 		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 
-		Contactlist b = new Contactlist();
+		ContactImp b = new ContactImp();
 		Contact a = new Contact();
 		Contact a1 = new Contact();
 
