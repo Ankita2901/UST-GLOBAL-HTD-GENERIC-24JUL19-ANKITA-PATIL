@@ -1,34 +1,38 @@
-package form.div.collections;
+package com.dev.Contacts;
 
 public class Contact {
-	private String Name;
-	private Long Number;
-	private String Group;
-	
-	@Override
-	public String toString() {
-		return "Contact [Name=" + Name + ", Number=" + Number + ", Group=" + Group + "]";
-	}
-
-	public String getName() {
-		return Name;
-	}
-	public void setName(String name) {
-		Name = name;
-	}
-	public Long getNumber() {
-		return Number;
-	}
-	public void setNumber(Long number) {
-		Number = number;
-	}
+	private String name;
+	private long phoneNo;
+	private String message;
+	private String group;
 	public String getGroup() {
-		return Group;
+		return group;
 	}
 	public void setGroup(String group) {
-		Group = group;
+		this.group = group;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	@Override
+	public String toString() {
+		return "Contact [name=" + name + ", phoneNo=" + phoneNo + ", message=" + message + ", group=" + group + "]";
+	}
+	public long getPhoneNo() {
+		return phoneNo;
+	}
+	public void setPhoneNo(long phoneNo) {
+		this.phoneNo = phoneNo;
+	}
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
-
-
 }
+
