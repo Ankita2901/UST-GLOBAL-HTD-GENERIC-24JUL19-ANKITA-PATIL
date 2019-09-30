@@ -1,23 +1,53 @@
-package form.div.collections;
-
-import java.util.HashMap;
-
-public class ContactImplements implements ContactInterface{
-	
-	HashMap<String, Contact> hm = new HashMap<String, Contact>();
-
-	@Override
-	public void print() {
-		System.out.println("Press-1 to show all contacts" );
-		System.out.println("Press-2 to search for contact Using name");
-		System.out.println("Press-3 to operate on contact");
-
-	}
+package com.dev.Contacts;
 
 
-	@Override
-	public int options(Contact contact) {
-		return 0;
+import java.util.Scanner;
+
+
+public class Contactlist {
+	Scanner sc = new Scanner(System.in);
+
+	public void contact(Contact value)
+	{
+		int w;
+		do {
+		System.out.println("enter 1 to call enter 2 to message");
+       int i = sc.nextInt();
+       if(i==1)
+       {
+    	   System.out.println("enter the number to call");
+    	    long l = sc.nextLong();
+    	    System.out.println("calling............"+l);
+    	    
+    	    System.out.println("call ended !!!");
+       }
+       else if(i==2)
+       {
+    	   System.out.println("enter the message");
+   	    String s = sc.next();
+   	    value.setMessage(s);
+   	    System.out.println("message is sending..............");
+    	   
+       }
+       else
+       {
+    	   System.out.println("invalid.......");
+       }
+       System.out.println("enter 1 to continue 2 go out");
+        w = sc.nextInt();
+		}while(w==1);
+		
+		}
+	public void editContact(Contact value)
+	{
+		System.out.println("enter name");
+		String s3= sc.next();
+		value.setName(s3);
+		System.out.println("enter phoneNo");
+		long s4= sc.nextLong();
+		value.setPhoneNo(s4);
+		
 		
 	}
+
 }
